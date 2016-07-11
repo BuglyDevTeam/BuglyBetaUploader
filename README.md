@@ -1,8 +1,8 @@
-# Beta Gradle²å¼şÊ¹ÓÃËµÃ÷
+# Beta Gradleæ’ä»¶ä½¿ç”¨è¯´æ˜
 
 
 
-ÔÚ¸ùÄ¿Â¼ÏÂµÄbuild.graldeÎÄ¼şµÄdepandencies£¨buildscript²¿·Ö£©ÖĞÌí¼Ó£º
+åœ¨æ ¹ç›®å½•ä¸‹çš„build.graldeæ–‡ä»¶çš„depandenciesï¼ˆbuildscriptéƒ¨åˆ†ï¼‰ä¸­æ·»åŠ ï¼š
 
 ```
  dependencies {
@@ -10,8 +10,8 @@
     }
 ```
 
-ÆäÖĞlatest.releaseÎª²å¼ş×îĞÂ°æ£¬ÈçĞèÖ¸¶¨¾ßÌå°æ±¾ÔòÖ¸¶¨Èç1.0.0¡£
-ÔÚmoduleµÄbuild.gradleÎÄ¼şµÄ¶¥²¿Ìí¼Ó£º
+å…¶ä¸­latest.releaseä¸ºæ’ä»¶æœ€æ–°ç‰ˆï¼Œå¦‚éœ€æŒ‡å®šå…·ä½“ç‰ˆæœ¬åˆ™æŒ‡å®šå¦‚1.0.0ã€‚
+åœ¨moduleçš„build.gradleæ–‡ä»¶çš„é¡¶éƒ¨æ·»åŠ ï¼š
 ```
 apply plugin: 'com.tencent.bugly.plugin.betauploader'
 
@@ -20,27 +20,27 @@ beta {
     appKey = '<App Key>'
 }
 ```
-³ıÁËappIdºÍappKeyÖ®Íâ£¬»¹¿ÉÒÔÉèÖÃÆäËûÊôĞÔ£¬ÊôĞÔÁĞ±íÈçÏÂ£º
+é™¤äº†appIdå’ŒappKeyä¹‹å¤–ï¼Œè¿˜å¯ä»¥è®¾ç½®å…¶ä»–å±æ€§ï¼Œå±æ€§åˆ—è¡¨å¦‚ä¸‹ï¼š
 
-| ÊôĞÔ | Öµ  | ËµÃ÷ |
+| å±æ€§ | å€¼  | è¯´æ˜ |
 | --- | --- | --- |
-|appId |String| App ID <±ØÑ¡>|
-| appKey |String| App Key <±ØÑ¡>|
-| expId| String | ÌåÑé°æ±¾id£¬Ä¬ÈÏÎª¿Õ |
-| title | String | °æ±¾Ãû³Æ£¬Ä¬ÈÏÒÔ`<projectname>-<version name><version code> `ÃüÃû|
-| desc | String | °æ±¾ÃèÊö£¬Ä¬ÈÏÎª¿Õ |
-| secret | int | ¹«¿ª·¶Î§£¨1£ºËùÓĞÈË£¬2£ºÃÜÂë£¬4¹ÜÀíÔ±£¬5QQÈº£¬6°×Ãûµ¥£¬Ä¬ÈÏ¹«¿ªËùÓĞÈË£©|
-| users | String | Èç¹û¹«¿ª·¶Î§ÊÇ"QQÈº"ÌîQQÈººÅ£»Èç¹û¹«¿ª·¶Î§ÊÇ"°×Ãûµ¥"ÌîQQºÅÂë£¬²¢Ê¹ÓÃ;ÇĞ·Ö¿ª£¬5000¸öÒÔÄÚ¡£ÆäËû³¡¾°ÎŞĞèÉèÖÃ|
-| password | String | ÃÜÂë(Èç¹û¹«¿ª·¶Î§ÊÇ"ÃÜÂë"ĞèÉèÖÃ)| 
-| download_limit | int |ÏÂÔØÉÏÏŞ(´óÓÚ0£¬Ä¬ÈÏ1000)|
-| apkFile| String | Ö¸¶¨ÉÏ´«µÄapkÎÄ¼ş£¬Èç²»Ö¸¶¨ÔòÉÏ´«±àÒëºóµÄapkÂ·¾¶|
-| enable | Boolean | ²å¼ş¿ª¹Ø£¬Ä¬ÈÏÎªtrue|
-| autoUpload | Boolean | ÊÇ·ñ×Ô¶¯ÉÏ´«£¬Ä¬ÈÏÎªfalse |
-| debugOn |Boolean | debugÄ£Ê½ÊÇ·ñÉÏ´«£¬ Ä¬ÈÏÎªfalse|
+|appId |String| App ID <å¿…é€‰>|
+| appKey |String| App Key <å¿…é€‰>|
+| expId| String | ä½“éªŒç‰ˆæœ¬idï¼Œé»˜è®¤ä¸ºç©º |
+| title | String | ç‰ˆæœ¬åç§°ï¼Œé»˜è®¤ä»¥`<projectname>-<version name><version code> `å‘½å|
+| desc | String | ç‰ˆæœ¬æè¿°ï¼Œé»˜è®¤ä¸ºç©º |
+| secret | int | å…¬å¼€èŒƒå›´ï¼ˆ1ï¼šæ‰€æœ‰äººï¼Œ2ï¼šå¯†ç ï¼Œ4ç®¡ç†å‘˜ï¼Œ5QQç¾¤ï¼Œ6ç™½åå•ï¼Œé»˜è®¤å…¬å¼€æ‰€æœ‰äººï¼‰|
+| users | String | å¦‚æœå…¬å¼€èŒƒå›´æ˜¯"QQç¾¤"å¡«QQç¾¤å·ï¼›å¦‚æœå…¬å¼€èŒƒå›´æ˜¯"ç™½åå•"å¡«QQå·ç ï¼Œå¹¶ä½¿ç”¨;åˆ‡åˆ†å¼€ï¼Œ5000ä¸ªä»¥å†…ã€‚å…¶ä»–åœºæ™¯æ— éœ€è®¾ç½®|
+| password | String | å¯†ç (å¦‚æœå…¬å¼€èŒƒå›´æ˜¯"å¯†ç "éœ€è®¾ç½®)| 
+| download_limit | int |ä¸‹è½½ä¸Šé™(å¤§äº0ï¼Œé»˜è®¤1000)|
+| apkFile| String | æŒ‡å®šä¸Šä¼ çš„apkæ–‡ä»¶ï¼Œå¦‚ä¸æŒ‡å®šåˆ™ä¸Šä¼ ç¼–è¯‘åçš„apkè·¯å¾„|
+| enable | Boolean | æ’ä»¶å¼€å…³ï¼Œé»˜è®¤ä¸ºtrue|
+| autoUpload | Boolean | æ˜¯å¦è‡ªåŠ¨ä¸Šä¼ ï¼Œé»˜è®¤ä¸ºfalse |
+| debugOn |Boolean | debugæ¨¡å¼æ˜¯å¦ä¸Šä¼ ï¼Œ é»˜è®¤ä¸ºfalse|
 
 
 
-`<Project>/build.gradle`ÎÄ¼şÈçÏÂ£º
+`<Project>/build.gradle`æ–‡ä»¶å¦‚ä¸‹ï¼š
 ```
 buildscript {
         repositories {
@@ -52,11 +52,11 @@ buildscript {
         }
     }}
 ```
-ÆäÖĞ¡°latest.release¡±ÒıÓÃ²å¼ş×îĞÂ°æ±¾£¬¸üĞÂ²å¼şÖ»ĞèÒªRebuildÒ»ÏÂ¹¤³Ì¼´¿É¡£
+å…¶ä¸­â€œlatest.releaseâ€å¼•ç”¨æ’ä»¶æœ€æ–°ç‰ˆæœ¬ï¼Œæ›´æ–°æ’ä»¶åªéœ€è¦Rebuildä¸€ä¸‹å·¥ç¨‹å³å¯ã€‚
 
-`<Project>/<Module>/build.gradle`ÎÄ¼şÈçÏÂ£º
+`<Project>/<Module>/build.gradle`æ–‡ä»¶å¦‚ä¸‹ï¼š
 ```
-apply plugin: 'betauploader'
+apply plugin: 'com.tencent.bugly.plugin.betauploader'
     ...
     beta { 
         appId = '900000000'
@@ -64,17 +64,17 @@ apply plugin: 'betauploader'
     }
 ```
 
-ÏîÄ¿Ó¦ÓÃÁËBeta²å¼şÖ®ºó£¬²å¼şÄ¬ÈÏÊÇ¿ªÆôµÄ£¬»áÔÚ¹¤³ÌGradle projectsÉú³ÉÒÔÏÂÁ½¸ötask£º
+é¡¹ç›®åº”ç”¨äº†Betaæ’ä»¶ä¹‹åï¼Œæ’ä»¶é»˜è®¤æ˜¯å¼€å¯çš„ï¼Œä¼šåœ¨å·¥ç¨‹Gradle projectsç”Ÿæˆä»¥ä¸‹ä¸¤ä¸ªtaskï¼š
 ![task | center](./images/1467976971701.png)
 
 
 
-¿ÉÒÔÖ±½Óµã»÷Ö´ĞĞ»òÕßÔÚÃüÁîĞĞÊäÈëÒÔÏÂÃüÁî£º
+å¯ä»¥ç›´æ¥ç‚¹å‡»æ‰§è¡Œæˆ–è€…åœ¨å‘½ä»¤è¡Œè¾“å…¥ä»¥ä¸‹å‘½ä»¤ï¼š
 ```
 gradle uploadReleaseBetaApkFile
 ```
 
-ÉÏ´«³É¹¦Ö®ºó¾Í¿ÉÒÔÔÚÄÚ²âÆ½Ì¨¿´µ½°æ±¾ĞÅÏ¢£º
+ä¸Šä¼ æˆåŠŸä¹‹åå°±å¯ä»¥åœ¨å†…æµ‹å¹³å°çœ‹åˆ°ç‰ˆæœ¬ä¿¡æ¯ï¼š
 ![Alt text](./images/1467977676237.png)
 
 
