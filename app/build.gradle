@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://jalenchen.bintray.com/maven/'
+        }
+    }
+    dependencies {
+        classpath 'com.tencent.bugly.plugin:betauploader:1.0.0'
+    }
+}
+
+
+apply plugin: 'com.android.application'
+apply plugin: 'groovyx.grooid.groovy-android'
+apply plugin: 'com.tencent.bugly.plugin.betauploader' // 应用上传apk插件
+
+// beta配置
+beta {
+    appId = '900037672'
+    appKey = 'bQvYLRrBNiqUctfi'
+    title = "测试55555"
+    desc = "你没事吧1111"
+    enable = false
+    autoUpload = true
+    debugOn = true
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.devilwwj.plugintest"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("buglydemo.jks")
+            storePassword "buglydemo"
+            keyAlias "buglydemo"
+            keyPassword "buglydemo"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+}

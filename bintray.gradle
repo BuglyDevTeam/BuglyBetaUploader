@@ -1,0 +1,89 @@
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+
+group = "com.tencent.bugly.plugin"
+version = "1.0.0"
+
+def baseUrl = 'https://github.com/BuglyDevTeam'
+def siteUrl = baseUrl
+def gitUrl = "${baseUrl}/BuglyBetaUploder.git"
+def issueUrl = "${baseUrl}/BuglyBetaUploder/issues"
+
+def projectName = "betauploader"
+def mavenDesc = 'bugly beta uploader'
+def licenseIds = ['Apache-2.0']
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom.project {
+            // packaging 'jar'
+            // Add your description here
+            name = 'Upload apk file to bugly platform'
+            url siteUrl
+            // Set your license
+            licenses {
+                license {
+                    name = 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
+            }
+            developers {
+                developer {
+                    id 'jalenchen'
+                    name 'wenkechen'
+                    email 'jalenchen@qq.com'
+                }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from 'src/main/groovy'
+    exclude 'META-INF'
+    classifier = 'sources'
+}
+
+groovydoc {
+    includePrivate = true
+    source = 'src/main/groovy'
+}
+
+task groovydocJar(type: Jar, dependsOn: groovydoc) {
+    classifier = 'javadoc'
+    from groovydoc.destinationDir
+}
+
+artifacts {
+    archives groovydocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+
+    pkg {
+        repo = 'maven'
+        name = projectName
+        desc = mavenDesc
+        websiteUrl = siteUrl
+        issueTrackerUrl = issueUrl
+        vcsUrl = gitUrl
+        labels = ['gradle', 'com.tencent.bugly.plugin', 'betauploader']
+        licenses = licenseIds
+        publish = true
+        publicDownloadNumbers = true
+    }
+}
