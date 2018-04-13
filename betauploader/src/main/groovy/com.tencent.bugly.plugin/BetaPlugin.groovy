@@ -92,7 +92,7 @@ public class BetaPlugin implements Plugin<Project> {
      * @return
      */
     public UploadInfo generateUploadInfo(Object variant) {
-        def manifestFile = variant.outputs.processManifest.manifestOutputFile[0]
+//        def manifestFile = variant.outputs.processManifest.manifestOutputFile[0]
 //        println("-> Manifest: " + manifestFile)
 //        println("VersionCode: " + variant.getVersionCode() + " VersionName: " + variant.getVersionName())
 
