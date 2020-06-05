@@ -55,7 +55,7 @@ public class BetaPlugin implements Plugin<Project> {
 
                 // Check for execution
                 if (false == project.beta.enable) {
-                    project.logger.error("Bugly: beta gradle enable is false, if you want to auto upload apk file, you should set the execute = true")
+                    project.logger.error("Bugly: beta gradle enable is false, if you want to auto upload apk file, you should set the enable = true")
                     return
                 }
 
@@ -91,11 +91,7 @@ public class BetaPlugin implements Plugin<Project> {
      * @param variant
      * @return
      */
-    public UploadInfo generateUploadInfo(Object variant) {
-        def manifestFile = variant.outputs.processManifest.manifestOutputFile[0]
-//        println("-> Manifest: " + manifestFile)
-//        println("VersionCode: " + variant.getVersionCode() + " VersionName: " + variant.getVersionName())
-
+    private UploadInfo generateUploadInfo(Object variant) {
         UploadInfo uploadInfo = new UploadInfo()
         uploadInfo.appId = project.beta.appId
         uploadInfo.appKey = project.beta.appKey
@@ -159,7 +155,7 @@ public class BetaPlugin implements Plugin<Project> {
      * @param uploadInfo
      * @return
      */
-    public boolean uploadApk(UploadInfo uploadInfo) {
+    private boolean uploadApk(UploadInfo uploadInfo) {
         // 拼接url如：https://api.bugly.qq.com/beta/apiv1/exp?app_key=bQvYLRrBNiqUctfi
         String url = APK_UPLOAD_URL + uploadInfo.appKey
         if (project.beta.expId != null) {
@@ -211,7 +207,7 @@ public class BetaPlugin implements Plugin<Project> {
      * @param uploadInfo 更新信息
      * @return
      */
-    public boolean post(String url, String filePath, UploadInfo uploadInfo) {
+    private boolean post(String url, String filePath, UploadInfo uploadInfo) {
         HttpURLConnectionUtil connectionUtil = new HttpURLConnectionUtil(url, Constants.HTTPMETHOD_POST);
         if (uploadInfo.expId != null) {
             connectionUtil.addTextParameter(Constants.EXP_ID, uploadInfo.expId);
