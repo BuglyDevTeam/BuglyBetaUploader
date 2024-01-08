@@ -1,41 +1,49 @@
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url 'https://jalenchen.bintray.com/maven/'
-        }
+        google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.tencent.bugly.plugin:betauploader:1.0.0'
+//        classpath 'com.tencent.bugly.plugin:betauploader:1.0.0'
     }
 }
 
 
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.grooid.groovy-android'
-apply plugin: 'com.tencent.bugly.plugin.betauploader' // 应用上传apk插件
+//apply plugin: 'com.tencent.bugly.plugin.betauploader' // 应用上传apk插件
 
-// beta配置
-beta {
-    appId = '900037672'
-    appKey = 'bQvYLRrBNiqUctfi'
-    title = "测试55555"
-    desc = "你没事吧1111"
-    enable = false
-    autoUpload = true
-    debugOn = true
+//// beta配置
+//beta {
+//    appId = '900037672'
+//    appKey = 'bQvYLRrBNiqUctfi'
+//    title = "测试55555"
+//    desc = "你没事吧1111"
+//    enable = false
+//    autoUpload = true
+//    debugOn = true
+//}
+
+ext {
+    shiplyAppId = "xxx"
+    shiplyAppKey = "xxxxxxx"
 }
 
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.1"
 
     defaultConfig {
         applicationId "com.devilwwj.plugintest"
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        buildConfigField("String","SHIPLY_APPID","\"${shiplyAppId}\"")
+        buildConfigField("String","SHIPLY_APPKEY","\"${shiplyAppKey}\"")
+
     }
 
     signingConfigs {
@@ -58,10 +66,18 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
+    implementation("com.tencent.shiply:upgrade:2.1.1-RC01")
+    implementation("com.tencent.shiply:upgrade-ui:2.1.1-RC01") // 弹框ui相关，业务方如果自己自定义弹框，可以不依赖这个库
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+//    compile 'com.android.support:appcompat-v7:23.4.0'
 }

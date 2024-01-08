@@ -1,81 +1,26 @@
-# Beta Gradle插件使用说明
+# ShiplyUpgradeDemo使用说明
+
+Bugly原有应用升级功能已经焕新为Shiply。
+
+[Shiply](https://shiply.tds.qq.com/)是TDS腾讯端服务（Tencent Device-oriented Service）旗下的一站式客户端发布平台，提供了一套规则灵活、发布安全、高效分发的终端基础通用发布系统，功能包括：Android灰度发布，Android热修复、配置与开关发布、资源发布，帮助产品和技术团队提高研效能力和决策力。
+
+本Demo主要演示如何快速接入Shiply安装包灰度升级SDK，更多SDK接入细节可以参考[Shiply包灰度SDK接入文档](https://shiply.tds.qq.com/docs/doc?id=4008331373)。
+
+安装本demo启动后点击「手动检查更新」按钮，会弹出升级弹框：
+![Alt text](./images/upgrade_dialog.png)
+
+点击弹框中「立即更新」按钮，会触发下载和安装。
+
+SDK初始化代码位于app/src/main/java/com/devilwwj/plugintest/MyApplication.java文件的initShiplyUpgradeSDK方法中，Shiply用户可以将对应的appId和appKey替换为自己的值(也可以修改app module的build.gradle文件中的shiplyAppId/shiplyAppKey)，然后进行测试验证。
+
+注意：
+需要确保在Shiply前端已经创建了对应的升级任务，具体操作可以参考[Shiply灰度发布操作指南](https://shiply.tds.qq.com/docs/doc?id=4008374894)；
+需要确保远端升级任务中APK文件的versionCode大于本地测试APK文件的versionCode;
 
 
 
-在根目录下的build.gralde文件的depandencies（buildscript部分）中添加：
-
-```
- dependencies {
-        classpath 'com.tencent.bugly.plugin:betauploader:latest.release'
-    }
-```
-
-其中latest.release为插件最新版，如需指定具体版本则指定如1.0.0。
-在module的build.gradle文件的顶部添加：
-```
-apply plugin: 'com.tencent.bugly.plugin.betauploader'
-
-beta {
-    appId = '<App ID>'
-    appKey = '<App Key>'
-}
-```
-除了appId和appKey之外，还可以设置其他属性，属性列表如下：
-
-| 属性 | 值  | 说明 |
-| --- | --- | --- |
-|appId |String| App ID <必选>|
-| appKey |String| App Key <必选>|
-| expId| String | 体验版本id，默认为空 |
-| title | String | 版本名称，默认以`<projectname>-<version name><version code> `命名|
-| desc | String | 版本描述，默认为空 |
-| secret | int | 公开范围（1：所有人，2：密码，4管理员，5QQ群，6白名单，默认公开所有人）|
-| users | String | 如果公开范围是"QQ群"填QQ群号；如果公开范围是"白名单"填QQ号码，并使用;切分开，5000个以内。其他场景无需设置|
-| password | String | 密码(如果公开范围是"密码"需设置)| 
-| download_limit | int |下载上限(大于0，默认1000)|
-| apkFile| String | 指定上传的apk文件，如不指定则上传编译后的apk路径|
-| enable | Boolean | 插件开关，默认为true|
-| autoUpload | Boolean | 是否自动上传，默认为false |
-| debugOn |Boolean | debug模式是否上传， 默认为false|
 
 
-
-`<Project>/build.gradle`文件如下：
-```
-buildscript {
-        repositories {
-            jcenter()
-        }
-        dependencies {
-            ...
-            classpath 'com.tencent.bugly.plugin:betauploader:latest.release'
-        }
-    }}
-```
-其中“latest.release”引用插件最新版本，更新插件只需要Rebuild一下工程即可。
-
-`<Project>/<Module>/build.gradle`文件如下：
-```
-apply plugin: 'com.tencent.bugly.plugin.betauploader'
-    ...
-    beta { 
-        appId = '900000000'
-        appKey = 'abcdefghijklmn'
-    }
-```
-
-项目应用了Beta插件之后，插件默认是开启的，会在工程Gradle projects生成以下两个task：
-![task | center](./images/1467976971701.png)
-
-
-
-可以直接点击执行或者在命令行输入以下命令：
-```
-gradle uploadReleaseBetaApkFile
-```
-
-上传成功之后就可以在内测平台看到版本信息：
-![Alt text](./images/1467977676237.png)
 
 
 
