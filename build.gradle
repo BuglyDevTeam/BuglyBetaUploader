@@ -3,9 +3,11 @@
 buildscript {
     repositories {
         jcenter()
+        google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.6'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:latest.release'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
@@ -17,9 +19,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url 'https://jalenchen.bintray.com/maven/'
-        }
+        google()
+        mavenCentral()
+        maven { url "https://tencent-tds-maven.pkg.coding.net/repository/shiply/repo" }
     }
 }
 
