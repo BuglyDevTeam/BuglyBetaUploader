@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="64dp"
+            tools:context="com.tencent.rdeliverydemo.MainActivity"
+            android:id="@+id/coordinatorLayout">
+
+
+        <TextView
+                android:text="请求远端配置"
+                android:textSize="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                    android:text="req_single"
+                    android:textSize="12dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/req_single"
+                    />
+            <EditText
+                    android:id="@+id/et_remote_config_name"
+                    android:layout_toRightOf="@+id/req_single"
+                    android:layout_marginLeft="8dp"
+                    android:hint="请输入配置名称"
+                    android:textSize="12dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                    android:text="req_multi"
+                    android:textSize="12dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/req_multi"
+                    />
+            <EditText
+                    android:id="@+id/et_remote_config_list"
+                    android:layout_toRightOf="@+id/req_multi"
+                    android:layout_marginLeft="8dp"
+                    android:hint="请输入配置列表（用,分隔）"
+                    android:textSize="12dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+
+
+        <Button
+                android:text="req_full"
+                android:textSize="12dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/req_full"
+                android:layout_marginTop="8dp" />
+
+
+        <TextView
+                android:text="查询本地配置"
+                android:textSize="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                />
+        <EditText
+                android:id="@+id/et_local_config_name"
+                android:hint="请输入配置名称"
+                android:textSize="12dp"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <RelativeLayout
+                android:layout_marginTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                    android:text="get_switch"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/get_local_switch"
+                    />
+
+            <Button
+                    android:text="get_config"
+                    android:layout_toRightOf="@+id/get_local_switch"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/get_local_config"
+                    android:layout_marginLeft="8dp"
+                    />
+
+            <Button
+                    android:text="get_data"
+                    android:layout_toRightOf="@+id/get_local_config"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/get_local_data"
+                    android:layout_marginLeft="8dp"
+                    />
+        </RelativeLayout>
+
+
+
+        <TextView
+                android:text="remote_result"
+                android:textSize="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/remote_result"
+                android:layout_marginTop="36dp"
+                />
+
+        <TextView
+                android:text="local_result"
+                android:textSize="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/local_result"
+                android:layout_marginTop="50dp"
+                />
+    </LinearLayout>
+
+</ScrollView>
