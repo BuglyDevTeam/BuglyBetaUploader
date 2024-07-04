@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.shiplyresdemo'
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.example.shiplyresdemo"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.tencent.shiply:reshub-sdk:1.8.19-RC02'//ResHub核心SDK
+    implementation 'com.tencent.shiply:reshub-net:1.8.19-RC02' //可选，默认的简单网络下载实现
+    implementation 'com.tencent.shiply:reshub-report:1.8.19-RC02'//可选，默认的上报SDK
+    implementation 'com.tencent.shiply:reshub-patch-sdk:1.8.19-RC02'        //可选，差量更新SDK
+}
