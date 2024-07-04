@@ -14,7 +14,7 @@
         tools:context="com.tencent.rdeliverydemo.MainActivity"
         android:id="@+id/coordinatorLayout">
         <TextView
-            android:text="拉取远端资源"
+            android:text="异步加载资源"
             android:textSize="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,14 +23,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <Button
-                android:text="load"
-                android:textSize="12dp"
-                android:layout_centerVertical="true"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/load"
-                />
             <EditText
                 android:id="@+id/et_remote_res_name"
                 android:layout_toRightOf="@+id/load"
@@ -41,29 +33,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
+            android:orientation="horizontal"
             android:layout_height="wrap_content">
+            <Button
+                android:text="load"
+                android:textSize="12dp"
+                android:layout_centerVertical="true"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/load"
+                android:layout_gravity="left"
+                />
             <Button
                 android:text="loadLatest"
                 android:textSize="12dp"
                 android:layout_centerVertical="true"
                 android:layout_width="120dp"
+                android:layout_gravity="right"
                 android:layout_height="wrap_content"
                 android:id="@+id/loadLatest"
                 />
-            <EditText
-                android:id="@+id/et_remote_reslatest_name"
-                android:layout_toRightOf="@+id/loadLatest"
-                android:layout_marginLeft="8dp"
-                android:hint="请输入最新资源名称（ResId）"
-                android:textSize="12dp"
-                android:layout_centerVertical="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
+        </LinearLayout>
         <TextView
-            android:text="拉取远端资源结果"
+            android:text="异步加载资源结果"
             android:textSize="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +72,7 @@
             android:background="#f0f0f0"
             android:textColor="#000000" />
         <TextView
-            android:text="获取本地资源"
+            android:text="同步加载资源"
             android:textSize="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,14 +81,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <Button
-                android:text="get"
-                android:textSize="12dp"
-                android:layout_centerVertical="true"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/get"
-                />
             <EditText
                 android:id="@+id/et_get_res_name"
                 android:layout_toRightOf="@+id/get"
@@ -105,9 +91,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:text="get"
+                android:textSize="12dp"
+                android:layout_centerVertical="true"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/get"
+                />
             <Button
                 android:text="getLatest"
                 android:textSize="12dp"
@@ -116,18 +111,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/getLatest"
                 />
-            <EditText
-                android:id="@+id/et_get_resLatest_name"
-                android:layout_toRightOf="@+id/getLatest"
-                android:layout_marginLeft="8dp"
-                android:hint="请输入资源名称（ResId）"
-                android:textSize="12dp"
-                android:layout_centerVertical="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
+        </LinearLayout>
         <TextView
-            android:text="获取本地资源结果"
+            android:text="同步加载资源结果"
             android:textSize="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

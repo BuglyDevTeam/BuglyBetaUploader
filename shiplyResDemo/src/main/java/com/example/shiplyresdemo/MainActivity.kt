@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         val etRemoteResName: EditText = findViewById(R.id.et_remote_res_name)
         val etGetResName: EditText = findViewById(R.id.et_get_res_name)
-        val etRemoteResLatestName: EditText = findViewById(R.id.et_remote_reslatest_name)
-        val etGetResLatestName: EditText = findViewById(R.id.et_get_resLatest_name)
         tvRemoteResult = findViewById(R.id.tv_remote_result)
         tvLocalResult = findViewById(R.id.tv_local_result)
         // 设置按钮点击事件
@@ -49,12 +47,12 @@ class MainActivity : AppCompatActivity() {
             getResource(resId)
         }
         loadLatestButton.setOnClickListener {
-            val resId = etRemoteResLatestName.text.toString()
+            val resId = etRemoteResName.text.toString()
             loadLatestResource(resId)
         }
 
         getLatestButton.setOnClickListener {
-            val resId = etGetResLatestName.text.toString()
+            val resId = etGetResName.text.toString()
             getLatestResource(resId)
         }
     }
@@ -67,12 +65,14 @@ class MainActivity : AppCompatActivity() {
             override fun onComplete(isSuccess: Boolean, result: IRes?, error: IResLoadError) {
                 if (isSuccess) {
                     Log.d("ResHubLoad", "资源拉取成功")
-                    showCustomToast("远端最新资源拉取成功")
-                    tvRemoteResult.text = "远端最新资源拉取成功"
+                    showCustomToast("异步最新资源拉取成功")
+                    if (result != null){
+                        tvRemoteResult.text = "异步最新资源拉取成功，文件路径：${result.getLocalPath()}"
+                    }
                 } else {
-                    Log.e("ResHubLoad", "资源拉取失败")
-                    showCustomToast("远端最新资源拉取失败")
-                    tvRemoteResult.text = "远端最新资源拉取失败"
+                    Log.e("ResHubLoad", "异步最新资源拉取失败")
+                    showCustomToast("异步最新资源拉取失败")
+                    tvRemoteResult.text = "异步最新资源拉取失败"
                 }
             }
         })
@@ -86,13 +86,15 @@ class MainActivity : AppCompatActivity() {
 
             override fun onComplete(isSuccess: Boolean, result: IRes?, error: IResLoadError) {
                 if (isSuccess) {
-                    Log.d("ResHubLoad", "资源拉取成功")
-                    showCustomToast("远端资源拉取成功")
-                    tvRemoteResult.text = "远端资源拉取成功"
+                    Log.d("ResHubLoad", "异步资源拉取成功")
+                    showCustomToast("异步资源拉取成功")
+                    if (result != null){
+                        tvRemoteResult.text = "异步资源拉取成功，文件路径：${result.getLocalPath()}"
+                    }
                 } else {
-                    Log.e("ResHubLoad", "资源拉取失败")
-                    showCustomToast("远端资源拉取失败")
-                    tvRemoteResult.text = "远端资源拉取失败"
+                    Log.e("ResHubLoad", "异步资源拉取失败")
+                    showCustomToast("异步资源拉取失败")
+                    tvRemoteResult.text = "异步资源拉取失败"
                 }
             }
         })
@@ -101,26 +103,26 @@ class MainActivity : AppCompatActivity() {
     private fun getResource(resId: String) {
         val res = reshub.get(resId)
         if (res != null) {
-            Log.d("ResHubGet", "成功获取本地资源: $res")
-            showCustomToast("本地资源获取成功")
+            Log.d("ResHubGet", "同步资源获取成功: $res")
+            showCustomToast("同步资源获取成功")
             updateResourceContent(res)
         } else {
-            Log.e("ResHubGet", "获取本地资源失败")
-            showCustomToast("本地资源获取失败")
-            tvLocalResult.text = "本地资源获取失败"
+            Log.e("ResHubGet", "同步资源获取失败")
+            showCustomToast("同步资源获取失败")
+            tvLocalResult.text = "同步资源获取失败"
         }
     }
 
     private fun getLatestResource(resId: String) {
         val res = reshub.getLatest(resId)
         if (res != null) {
-            Log.d("ResHubGet", "成功获取本地最新资源: $res")
-            showCustomToast("本地最新资源获取成功")
+            Log.d("ResHubGet", "成功获取同步最新资源: $res")
+            showCustomToast("同步最新资源获取成功")
             updateResourceContent(res)
         } else {
-            Log.e("ResHubGet", "获取本地最新资源失败")
-            showCustomToast("本地最新资源获取失败")
-            tvLocalResult.text = "本地最新资源获取失败"
+            Log.e("ResHubGet", "获取同步最新资源失败")
+            showCustomToast("同步最新资源获取失败")
+            tvLocalResult.text = "同步最新资源获取失败"
         }
     }
 
