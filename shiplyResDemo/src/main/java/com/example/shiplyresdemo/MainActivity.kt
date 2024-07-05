@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
     private fun getResource(resId: String) {
         val res = reshub.get(resId)
         if (res != null) {
-            Log.d("ResHubGet", "同步资源获取成功: $res")
+            Log.d("ResHubGet", "同步资源获取成功: ${res.getLocalPath()}")
             showCustomToast("同步资源获取成功")
             updateResourceContent(res)
         } else {
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
     private fun getLatestResource(resId: String) {
         val res = reshub.getLatest(resId)
         if (res != null) {
-            Log.d("ResHubGet", "成功获取同步最新资源: $res")
+            Log.d("ResHubGet", "成功获取同步最新资源: ${res.getLocalPath()}")
             showCustomToast("同步最新资源获取成功")
             updateResourceContent(res)
         } else {
