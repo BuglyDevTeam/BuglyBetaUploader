@@ -1,5 +1,6 @@
 package com.example.shiplyresdemo
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,14 +10,13 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.tencent.rdelivery.reshub.api.IRes
 import com.tencent.rdelivery.reshub.api.IResCallback
 import com.tencent.rdelivery.reshub.api.IResHub
 import com.tencent.rdelivery.reshub.api.IResLoadError
 import com.tencent.rdelivery.reshub.core.ResHubCenter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     private lateinit var reshub: IResHub
     private lateinit var tvRemoteResult: TextView
     private lateinit var tvLocalResult: TextView
