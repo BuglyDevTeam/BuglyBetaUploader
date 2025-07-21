@@ -8,9 +8,9 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.6'
+//        classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.6'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:latest.release'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -22,7 +22,8 @@ allprojects {
         jcenter()
         google()
         mavenCentral()
-        maven { url "https://tencent-tds-maven.pkg.coding.net/repository/shiply/repo" }
+        //        maven { url "https://tencent-tds-maven.pkg.coding.net/repository/shiply/repo" }
+        maven { url "https://maven.cnb.cool/tencent-tds/shiply-public/-/packages/" }
     }
 }
 

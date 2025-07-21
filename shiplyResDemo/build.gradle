@@ -38,8 +38,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.tencent.shiply:reshub-sdk:1.8.19-RC02'//ResHub核心SDK
-    implementation 'com.tencent.shiply:reshub-net:1.8.19-RC02' //可选，默认的简单网络下载实现
-    implementation 'com.tencent.shiply:reshub-report:1.8.19-RC02'//可选，默认的上报SDK
-    implementation 'com.tencent.shiply:reshub-patch-sdk:1.8.19-RC02'        //可选，差量更新SDK
+    implementation 'com.tencent.shiply:reshub-sdk:1.8.22-RC03'//ResHub核心SDK
+    implementation 'com.tencent.shiply:reshub-net:1.8.22-RC03' //可选，默认的简单网络下载实现
+    implementation 'com.tencent.shiply:reshub-report:1.8.22-RC03'//可选，默认的上报SDK
+    implementation 'com.tencent.shiply:reshub-patch-sdk:1.8.22-RC03'        //可选，差量更新SDK
 }

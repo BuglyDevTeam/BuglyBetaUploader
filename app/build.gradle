@@ -11,7 +11,6 @@ buildscript {
 
 
 apply plugin: 'com.android.application'
-apply plugin: 'groovyx.grooid.groovy-android'
 //apply plugin: 'com.tencent.bugly.plugin.betauploader' // 应用上传apk插件
 
 //// beta配置
@@ -75,8 +74,8 @@ android {
 }
 
 dependencies {
-    implementation("com.tencent.shiply:upgrade:2.1.1-RC01")
-    implementation("com.tencent.shiply:upgrade-ui:2.1.1-RC01") // 弹框ui相关，业务方如果自己自定义弹框，可以不依赖这个库
+    implementation("com.tencent.shiply:upgrade:2.2.2-RC01")
+    implementation("com.tencent.shiply:upgrade-ui:2.2.2-RC01") // 弹框ui相关，业务方如果自己自定义弹框，可以不依赖这个库
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 //    compile 'com.android.support:appcompat-v7:23.4.0'
